@@ -1,4 +1,4 @@
-FROM node:20
+FROM node:22.12.0
 
 WORKDIR /app
 
@@ -8,10 +8,10 @@ RUN npm install
 
 COPY prisma ./prisma
 
-RUN npx prisma generate
-
 COPY . .
+
+RUN npx prisma generate
 
 EXPOSE 3000
 
-CMD ["npm", "start"]
+CMD ["npm", "run", "dev:docker"]

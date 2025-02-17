@@ -1,18 +1,17 @@
-type PasswordUpdateRequest = {
-    update: {
-        password: string
-    }
+export class UserCreateDTO {
+    constructor(
+        public name: string,
+        public email: string,
+        public password: string,
+        public roleId: string,
+    ) {}
 }
 
-type RoleConnection = {
-    connect: {
-        id: string
-    }
-}
-
-export type UserUpdateData = {
-    name?: string,
-    email?: string,
-    credentials?: PasswordUpdateRequest,
-    role?: RoleConnection
+export class UserUpdateDTO {
+    constructor(
+        public name?: string,
+        public email?: string,
+        public password?: string,
+        public roleId?: string
+    ) {}
 }
